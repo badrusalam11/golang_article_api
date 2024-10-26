@@ -1,7 +1,10 @@
 package main
 
 import (
-	"golang_article_api/config" // Updated to match the module name
+	// Updated to match the module name
+	"fmt"
+	"golang_article_api/config"
+	"golang_article_api/database"
 	"golang_article_api/routes" // Updated to match the module name
 	"log"
 
@@ -9,7 +12,14 @@ import (
 )
 
 func main() {
-	db, err := config.SetupDatabase()
+	// Load the configuration
+	err := config.LoadConfig()
+	if err != nil {
+		fmt.Println("Error loading config:", err)
+		return
+	}
+
+	db, err := database.SetupDatabase()
 	if err != nil {
 		log.Fatal("Failed to connect to database:", err)
 	}

@@ -1,0 +1,9 @@
+{
+    "database":{
+        "server":"localhost",
+        "database":"article_db",
+        "username":"root",
+        "password":"",
+        "port":3306
+    }
+}
